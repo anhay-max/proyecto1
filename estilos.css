@@ -1,0 +1,287 @@
+/* ── 1. RESET Y CONFIGURACIÓN BÁSICA ────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* Paleta de colores profesional para centros de salud */
+  --color-primary: #0d9488;     /* Teal profesional (salud y confianza) */
+  --color-primary-dark: #0f766e;
+  --color-accent: #f97316;      /* Naranja suave para avisos y detalles */
+  --color-text: #1e293b;        /* Gris oscuro de alta legibilidad */
+  --color-muted: #64748b;       /* Gris suave para textos secundarios */
+  --color-bg: #f8fafc;          /* Fondo general muy limpio y claro */
+  --color-surface: #ffffff;     /* Blanco para tarjetas y contenedores */
+  --borde: #cbd5e1;
+  
+  --espacio: 1rem;
+  --espacio-lg: 2rem;
+  --radio: 8px;
+  --sombra: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
+body {
+  margin: 0;
+  padding: var(--espacio);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+/* ── 2. TIPOGRAFÍA ─────────────────────────────────────────────────────── */
+h1, h2, h3 {
+  line-height: 1.2;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+h1 { font-size: 2.25rem; margin-bottom: 0.5rem; text-align: center; }
+h2 { font-size: 1.75rem; margin-top: var(--espacio-lg); margin-bottom: 1rem; }
+h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+p { max-width: 65ch; }
+
+/* ── 3. ENLACES Y ESTADOS ──────────────────────────────────────────────── */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+a:hover { color: var(--color-accent); text-decoration: underline; }
+a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── 4. ENCABEZADO Y NAVEGACIÓN ────────────────────────────────────────── */
+header {
+  background: var(--color-surface);
+  padding: var(--espacio-lg);
+  border-bottom: 4px solid var(--color-primary);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  margin-bottom: var(--espacio-lg);
+  text-align: center;
+}
+
+header p {
+  margin-inline: auto;
+  color: var(--color-muted);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--espacio) 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  background: var(--color-bg);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio);
+  border: 1px solid var(--borde);
+}
+
+nav a:hover {
+  background: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── 5. SECCIÓN DE SERVICIOS (GRID DE TARJETAS) ────────────────────────── */
+#servicios {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  #servicios {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #servicios h2 {
+    grid-column: span 3;
+  }
+}
+
+article {
+  background: var(--color-surface);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: var(--espacio-lg);
+  box-shadow: var(--sombra);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.08);
+}
+
+/* ── 6. TABLA LEGIBLE ──────────────────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--color-surface);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  margin-bottom: var(--espacio);
+}
+
+caption {
+  text-align: left;
+  color: var(--color-muted);
+  padding-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--borde);
+}
+
+th {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+tr:hover td {
+  background-color: var(--color-bg);
+}
+
+/* Imagen y figura */
+figure {
+  margin: 0;
+  background: var(--color-surface);
+  padding: var(--espacio);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  margin-bottom: var(--espacio);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: calc(var(--radio) - 2px);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+/* ── 7. FORMULARIO ─────────────────────────────────────────────────────── */
+form {
+  background: var(--color-surface);
+  padding: var(--espacio-lg);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+fieldset {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: var(--espacio);
+  margin-bottom: var(--espacio-lg);
+  background: var(--color-surface);
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.65rem;
+  width: 100%;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--color-surface);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+button[type="submit"] {
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  min-height: 44px;
+  background: var(--color-primary);
+  color: #fff;
+  border: 0;
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  button[type="submit"] {
+    width: auto;
+  }
+}
+
+button[type="submit"]:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ── 8. ASIDE Y FOOTER ─────────────────────────────────────────────────── */
+aside {
+  background: var(--color-surface);
+  border-left: 4px solid var(--color-accent);
+  padding: var(--espacio-lg);
+  margin-top: var(--espacio-lg);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+footer {
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-lg) var(--espacio);
+  color: var(--color-muted);
+  text-align: center;
+  background: var(--color-surface);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  border-top: 4px solid var(--color-primary);
+}

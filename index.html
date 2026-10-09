@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Centro de salud integral Colquencha.">
+    <title>CS. Colquencha</title>
+    <link rel="stylesheet" href="estilos.css">
+  </head>
+
+  <body>
+    <!-- ── HEADER ────────────────────────────────────────────────────── -->
+    <header>
+      <h1>Centro de Salud Colquencha</h1>
+      <p>Este centro forma parte de la Red de Salud Rural N.º 13 del SEDES La Paz - 2026</p>
+
+      <!-- ── NAV ────────────────────────────────────────────────────── -->
+      <nav>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#horarios">Horarios</a></li>
+          <li><a href="#solicitud-cita">Solicitar cita</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ── MAIN ──────────────────────────────────────────────────────── -->
+    <main>
+
+      <!-- ── SECTION: SERVICIOS (Grid de 3 columnas) ───────────────── -->
+      <section id="servicios">
+        <h2>Nuestros servicios</h2>
+
+        <article>
+          <h3>Medicina general</h3>
+          <p>Consulta externa y atención primaria para todas las familias.</p>
+        </article>
+
+        <article>
+          <h3>Vacunación</h3>
+          <p>Esquema completo de inmunización para niños, adultos y adultos mayores.</p>
+        </article>
+
+        <article>
+          <h3>Emergencias</h3>
+          <p>Atención de urgencias médicas y primeros auxilios.</p>
+        </article>
+      </section>
+
+      <!-- ── SECTION: HORARIOS ──────────────────────────────────────── -->
+      <section id="horarios">
+        <h2>Horarios de Atención</h2>
+
+        <table>
+          <caption>Servicios médicos y días de atención oficial.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Servicios</th>
+              <th scope="col">Horarios</th>
+              <th scope="col">Días</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Medicina general</td>
+              <td>08:30 - 16:30</td>
+              <td>Lunes a sábado</td>
+            </tr>
+            <tr>
+              <td>Vacunación</td>
+              <td>14:00 - 16:30</td>
+              <td>Miércoles y jueves</td>
+            </tr>
+            <tr>
+              <td>Emergencias</td>
+              <td>24 horas</td>
+              <td>Todos los días</td>
+            </tr>
+          </tbody>
+        </table>   
+
+        <figure>
+          <img src="fachada01.jpg" alt="Fachada del Centro de Salud" width="600" height="400">
+          <figcaption>Instalaciones principales del Centro de Salud Colquencha.</figcaption>
+        </figure>
+
+        <p><strong>Nota general:</strong> Atención presencial de lunes a sábado de 08:30 a 12:00 y de 14:30 a 16:00.</p>
+      </section>
+
+      <!-- ── SECTION: SOLICITUD DE CITA ────────────────────────────── -->
+      <section id="solicitud-cita">
+        <h2>Solicitar cita médica</h2>
+
+        <form action="/solicitud-cita" method="post">
+          <fieldset>
+            <legend>Datos del Paciente</legend>
+
+            <p>
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+            </p>
+
+            <p>
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </p>
+
+            <p>
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" pattern="[0-9]{7,8}" title="De 7 a 8 dígitos, sin espacios">
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Detalles de la consulta</legend>
+
+            <p>
+              <label for="servicio-medico">Servicio requerido</label>
+              <select id="servicio-medico" name="servicio" required>
+                <option value="">Elige un servicio</option>
+                <option value="general">Medicina general</option>
+                <option value="vacunacion">Vacunación</option>
+                <option value="emergencia">Emergencias</option>
+                <option value="odontologia">Odontología</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="fecha">Fecha deseada</label>
+              <input type="date" id="fecha" name="fecha" required>
+            </p>
+
+            <p>
+              <label for="notas">Motivo de consulta</label>
+              <textarea id="notas" name="notas" rows="3"></textarea>
+            </p>
+
+            <p>
+              <input type="checkbox" id="terminos" name="terminos" required>
+              <label for="terminos" style="display: inline;">Acepto que me contacten por teléfono</label>
+            </p>
+          </fieldset>
+
+          <button type="submit">Enviar solicitud de cita</button>
+        </form>
+      </section>
+
+    </main>
+
+    <!-- ── ASIDE ─────────────────────────────────────────────────────── -->
+    <aside>
+      <h2>Avisos importantes</h2>
+      <p>Recuerda traer tu cédula de identidad y carnet de vacunación vigente al momento de tu consulta.</p>
+    </aside>
+
+    <!-- ── FOOTER ────────────────────────────────────────────────────── -->
+    <footer id="contacto">
+      <h2>Contacto</h2>
+      <address>
+        Localidad Colquencha, Provincia Aroma<br>
+        Av. La Paz<br>
+        Teléfono: 57513545
+      </address>
+      <p><small>&copy; Centro de Salud con Internación Colquencha - 2026</small></p>
+    </footer>
+  </body>
+</html>
